@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+
+	<div class ="container " >
+	<div style= "width:30% ;margin : 25px auto;" >
+		<h3>Add new campgrounds</h3>
+		<form method = "POST" action = "/campground">
+		<div class = "form-group" >
+
+			<input type = "text" name ="name" placeholder = "Add new campground" class="form-control">
+		
+		</div>
+		<div class = "form-group">
+			
+			<input type = "text" name ="img" placeholder = "your img link" class="form-control">
+		
+		</div>
+		<div class = "form-group">
+			
+			<textarea name ="description" placeholder = "Description" class="form-control"> </textarea>
+		
+		</div>
+		<div class = "form-group">
+			
+			<button class= "btn btn-lg btn-success btn-block" >submit!!</button>
+		
+		</div>
+		</form>
+		<a href = "/campground" class = "btn btn-primary"> Go back </a>
+		</div>
+	</div>
+<% include ../partials/footer %>

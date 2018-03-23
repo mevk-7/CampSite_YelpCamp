@@ -23,6 +23,7 @@
     function seedDB(){
        //Remove all campgrounds
        Campground.remove({}, function(err){
+        /*
             if(err){
                 console.log(err);
             }
@@ -57,7 +58,9 @@
                     });
                 });
             });
+            */
         }); 
+
         //add a few comments
     }
      

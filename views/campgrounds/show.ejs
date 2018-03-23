@@ -18,6 +18,18 @@
 						<h4 class="pull-right">$9.00/night</h4>
 						<h4><a><%= body.name%></a></h4>
 						<p><%=body.description%></p>
+						<p>
+							<em> Submitted by <%= body.author.username%></em>
+
+						</p>
+						<% if (currentUser && body.author.id.equals(currentUser._id)) {%>
+							<a  href="/campground/<%= body._id %>/edit" class = "btn btn-xs btn-warning">Edit</a>
+							<form id="form-delete" action="/campground/<%= body._id %>?_method=DELETE" method="POST">
+								<button   class="btn btn-danger btn-xs">Delete</button>
+							</form>
+
+							<% }%>
+						
 					</div>
 				</div>
 				<div class="well">
@@ -28,7 +40,13 @@
 					<div class="row">
 						<div class="col-md-12">
 							<hr>
-							<strong> <%= comment.author %></strong> 
+							<strong> <%= comment.author.username %></strong>
+							<% if (currentUser && comment.author.id.equals(currentUser._id)) {%>
+							<a href="/campground/<%=body._id %>/comments/<%=comment._id %>/edit" class= "btn btn-xs btn-warning">Edit</a> 
+							<form id ="form-delete" action="/campground/<%=body._id %>/comments/<%=comment._id %>?_method=DELETE" method="POST">
+							<button  class="btn btn-danger btn-xs">Delete</button>
+							</form>
+							<% } %>
 							<span class = "pull-right">10 days ago</span>
 							<p> <%= comment.text%> </p>
 							<%}) %>				
